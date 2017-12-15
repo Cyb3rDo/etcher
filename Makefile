@@ -228,6 +228,9 @@ $(BUILD_DIRECTORY)/$(APPLICATION_NAME)-cli-$(APPLICATION_VERSION)-$(PLATFORM)-$(
 	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-cli-$(APPLICATION_VERSION)-$(PLATFORM)-$(TARGET_ARCH)-app \
 	| $(BUILD_DIRECTORY)
 	mkdir $@
+	ls -a node_modules
+	ls -a node_modules/npx
+	ls -a node_modules/npx/node_modules
 	cd $< && ../../$(NPX) pkg --output ../../$@/$(ETCHER_CLI_BINARY) -t node6-$(PLATFORM_PKG)-$(TARGET_ARCH) $(ENTRY_POINT_CLI)
 	./scripts/build/dependencies-npm-extract-addons.sh \
 		-d $</node_modules \
